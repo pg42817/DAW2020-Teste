@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pr SYSTEM "../T2/t2.dtd">
+<pr>
+    <meta>
+        <key>DAW_TESTE_PR</key>
+        <title>Project Record do Teste de DAW </title>
+        <bdate>20 janeiro 2021</bdate>
+        <edate>20 janeiro 2021</edate>
+        <supervisor url="http://www4.di.uminho.pt/~jcr/">José Carlos Ramalho</supervisor>
+    </meta>
+    <team>
+        <member id="pg42817">
+            <name>Carlos Magalhães</name>
+            <email>pg42817@alunos.uminho.pt</email>
+        </member>
+    </team>
+    <abstract>
+        <p><b>Exercício 1:</b></p>
+        <p>Para fazer as alterações do ficheiro json utilizei um ide online de python visto que não tenho instalado no meu computador para separar a entrada do titulo e obter os dados do pai e mãe. Após isso criei os campos necessários</p>
+        <p>O mesmo pode ser consultado em <link>https://repl.it/@CarlosMagalhes/DAW#main.py</link></p>
+        <p>Depois utilizei uma RegExp para criar o campo _id e substituir o / por _, a mesma foi a seguinte:</p>
+        <p>Criar campo "_id" ("ref":[ ]*)["]([a-zA-Z]*)\/([a-zA-Z]*)\/([a-zA-Z0-9]*)\/([0-9]*)\/([0-9]*)\/([0-9]*)["](,) e substituir por "ref":"$2/$3/$4/$5/$6/$7", \n"_id":"$2_$3_$4_$5_$6_$7",</p>
+        <p>Depois utilizei uma base de dados Mongo para fazer a persistência do dataset. Carreguei este com o comando:<i>mongoimport --db teste --collection batismos --file batismos.json --jsonArray</i></p>
+        <p>Depois para realizar o exercicio pedido utilizei o express de acordo com o aprendido nas aulas. Removi a pasta Views e Public visto que não é necessário.</p>
+        <p>Para executar utilizar o servidor basta na pasta fazer <Wi>npm start</i> e depois conectar à porta indicada que neste caso é a 7778</p>
+        <p>Nota: No exercicio que pedia para fazer a rota GET /api/batismos/batisado  não consegui com que os nomes fossem únicos, apesar de não ser um requisito do professor era um objetivo pessoal visto que não faz sentido aparecerem nomes repetidos</p>
+        <p><b>Exercício 2:</b></p>
+        <p><i>Aquecimento:</i></p>
+        <p>Para fazer o aquecimento usei um script que faz a contagem no Postman:</p>
+        <p>var body = JSON.parse(responseBody);tests["Count: "  + Object.keys(body).length] = true;</p>
+        <p>1-Existem 842 processos de nível 3</p>
+        <p>2-Existem 637 entidades catalogadas</p>
+        <p>3-Existem 8 processos na descendência de 900.10</p>
+        <p>4-Estão 5 processos relacionados com a classe 900.10.505</p>
+        <p>Criei uma api com o comando <i>express --view=pug ex2</i>. A API encotra-se a correr na porta 7777 pelo que é apenas necessário conectar-se ao localhost:7777 para utilizar a mesma</p>
+        <p>De forma a aplicação ficar visualmente mais bonita usei a stylesheet da w3schools, no entanto não aprimorei muito o aspeto das páginas.</p>
+    </abstract>
+    <deliverables>
+        <link url="PR.xml">Project Record</link>
+        <link url="ex1">Pasta do exercício 1</link>
+        <link url="ex2">Pasta do exercício 2 </link>
+    </deliverables>
+</pr>
